@@ -50,7 +50,8 @@ test.csv 没有特征数据;它就是表征那些数据是属于测试集的.\
 &emsp;wind_direction：风向数据\
 &emsp;wind_speed：风力数据
 ### 3 回归
-'''
+&emsp;Light
+```
 params = {
     "objective": "regression",
     "boosting": "gbdt",
@@ -61,7 +62,7 @@ params = {
     "metric": "rmse"
 }
 model = lgb.train(params, train_set=d_half_1, num_boost_round=1000, valid_sets=watchlist_1, verbose_eval=200, early_stopping_rounds=200)
-'''
+```
 ### 4 评价与展望
 
 ### 5 参考
