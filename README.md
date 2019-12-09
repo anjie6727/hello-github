@@ -12,30 +12,30 @@ score:1.1 rank:1422
 train.csv\
 	building_id - 元数据的键值\
 	meter - 计量表的类型 {0: 电表, 1: 冷水, 2: 蒸汽, 3: 热水}. 不是所有建筑物都具备所有类型的计量表.\
-	timestamp - 测量值记录的时间
-	meter_reading - 模型的目标变量. 能耗单位 kWh. 这是带误差的真实测量值, 这会增加模型本身的误差. 注意:  0 电表读数单位为kBTU（千磅纯水上升一华氏度所需的能量）.
-building_meta.csv
-	site_id - 天气数据的键值.
-	building_id - 对应 train.csv 中的 building_id
-	primary_use - 基于EnergyStar标准定义的建筑主要活动类别
-	square_feet - 平方英尺
-	year_built - 建筑年限
-	floor_count - 建筑楼层
-weather_[train/test].csv 分为train和test两个文件
-	site_id - 距离建筑物最近气象站的编码
-	air_temperature - 空气温度，摄氏度
-	cloud_coverage - 云遮度
-	dew_temperature - 湿温，摄氏度
-	precip_depth_1_hr - 降水，毫米
-	sea_level_pressure - 海平面气压 毫米汞柱/百帕
-	wind_direction - 风向 (0-360)
-	wind_speed - 风速 米每秒
-test.csv
-test.csv 没有特征数据;它就是表征那些数据是属于测试集的.
-	row_id - 行号
-	building_id - 之前文件中给定的Building id
-	meter - 计量表类型
-	timestamp - 时间戳
+	timestamp - 测量值记录的时间\
+	meter_reading - 模型的目标变量. 能耗单位 kWh. 这是带误差的真实测量值, 这会增加模型本身的误差. 注意:  0 电表读数单位为kBTU（千磅纯水上升一华氏度所需的能量）.\
+building_meta.csv\
+	site_id - 天气数据的键值.\
+	building_id - 对应 train.csv 中的 building_id\
+	primary_use - 基于EnergyStar标准定义的建筑主要活动类别\
+	square_feet - 平方英尺\
+	year_built - 建筑年限\
+	floor_count - 建筑楼层\
+weather_[train/test].csv 分为train和test两个文件\
+	site_id - 距离建筑物最近气象站的编码\
+	air_temperature - 空气温度，摄氏度\
+	cloud_coverage - 云遮度\
+	dew_temperature - 湿温，摄氏度\
+	precip_depth_1_hr - 降水，毫米\
+	sea_level_pressure - 海平面气压 毫米汞柱/百帕\
+	wind_direction - 风向 (0-360)\
+	wind_speed - 风速 米每秒\
+test.csv\
+test.csv 没有特征数据;它就是表征那些数据是属于测试集的.\
+	row_id - 行号\
+	building_id - 之前文件中给定的Building id\
+	meter - 计量表类型\
+	timestamp - 时间戳\
 ### 2 FEATURES
 
 ### 3 CLASSIFICTION
