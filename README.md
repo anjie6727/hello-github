@@ -3,7 +3,7 @@
 作业的对象是 kaggle :[ASHRAE - Great Energy Predictor III](https://www.kaggle.com/c/ashrae-energy-prediction/overview)
 核心算法为决策树，所用优化框架为LightGBM。模型没有就时间序列，特征等方向进行优化，所以只是得一个基础分。
 所得成绩如下
-&emsp;[ANAN6727](https://www.kaggle.com/anan6727903376998/competitions)
+&emsp;[这是我的kaggle:ANAN6727](https://www.kaggle.com/anan6727903376998/competitions)
     ![score](https://raw.githubusercontent.com/anjie6727/hello-github/master/score.png)
     ![rank](https://raw.githubusercontent.com/anjie6727/hello-github/master/rank.png)
 score:1.1 rank:1422
@@ -36,7 +36,7 @@ test.csv 没有特征数据;它就是表征那些数据是属于测试集的.\
 	&emsp;row_id - 行号\
 	&emsp;building_id - 之前文件中给定的Building id\
 	&emsp;meter - 计量表类型\
-	&emsp;timestamp - 时间戳\
+	&emsp;timestamp - 时间戳
 ### 2 特征
 由问题描述可以得到这是一个Regression问题，故选择回归决策树来解决问题。\
 针对大量的数据，对特征进行筛选。已选择出对问题有效，同时又方便解决的特征。主要对时间特征进行筛选，处理，提取出几个对问题可能有效的时间特征，如，工作时间等。\
@@ -48,12 +48,23 @@ test.csv 没有特征数据;它就是表征那些数据是属于测试集的.\
 &emsp;timestamp: 完整时间戳数据\
 &emsp;sea_level_pressure:天气大气压数据\
 &emsp;wind_direction：风向数据\
-&emsp;wind_speed：风力数据\
+&emsp;wind_speed：风力数据
 ### 3 回归
-
+'''
+params = {
+    "objective": "regression",
+    "boosting": "gbdt",
+    "num_leaves": 40,
+    "learning_rate": 0.05,
+    "feature_fraction": 0.85,
+    "reg_lambda": 2,
+    "metric": "rmse"
+}
+model = lgb.train(params, train_set=d_half_1, num_boost_round=1000, valid_sets=watchlist_1, verbose_eval=200, early_stopping_rounds=200)
+'''
 ### 4 评价与展望
 
 ### 5 参考
-[🔌⚡ASHRAE -Start Here: A GENTLE Introduction](https://www.kaggle.com/caesarlupum/ashrae-start-here-a-gentle-introduction)
+[🔌⚡ASHRAE -Start Here: A GENTLE Introduction](https://www.kaggle.com/caesarlupum/ashrae-start-here-a-gentle-introduction)\
 [ASHRAE: Half and Half](https://www.kaggle.com/rohanrao/ashrae-half-and-half)
 
