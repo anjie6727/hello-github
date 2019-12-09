@@ -50,7 +50,13 @@ test.csv 没有特征数据;它就是表征那些数据是属于测试集的.\
 &emsp;wind_direction：风向数据\
 &emsp;wind_speed：风力数据
 ### 3 回归
-&emsp;Light
+&emsp;LightGBM框架是基于树的梯度增强框架。它被设计为分布式且高效的，具有以下优点：
+#### 优化速度和内存使用率
+
+#### 精度优化
+##### 逐叶（最佳优先）生长
+##### 分类特征的最佳分割
+#### 稀疏优化
 ```
 params = {
     "objective": "regression",
@@ -61,7 +67,7 @@ params = {
     "reg_lambda": 2,
     "metric": "rmse"
 }
-model = lgb.train(params, train_set=d_half_1, num_boost_round=1000, valid_sets=watchlist_1, verbose_eval=200, early_stopping_rounds=200)
+model = lgb.train(params, train_set, num_boost_round=1000, valid_sets=list, verbose_eval=200, early_stopping_rounds=200)
 ```
 ### 4 评价与展望
 
