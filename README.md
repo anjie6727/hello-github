@@ -1,12 +1,12 @@
 ## ASHRAE - Great Energy Predictor III 能耗预测
-这是一份对基于赵老师教授的 模式识别课程的 作业
+这是一份基于赵老师教授的 模式识别 课程的 作业
 作业的对象是 kaggle :[ASHRAE - Great Energy Predictor III](https://www.kaggle.com/c/ashrae-energy-prediction/overview)
-核心算法为决策树，所用优化框架为LightGBM。模型没有就时间序列，特征等方向优化，所以只是得一个基础分。
+核心算法为决策树，所用优化框架为LightGBM。模型没有就时间序列，特征等方向进行优化，所以只是得一个基础分。
 所得成绩如下
     ![result](https://raw.githubusercontent.com/anjie6727/hello-github/master/score.png)
     ![result](https://raw.githubusercontent.com/anjie6727/hello-github/master/rank.png)
 score:1.1 rank:1422
-### 1 INTRDUCTIONscore.png
+### 1 介绍
 问题描述：开发精确的为建筑物计量能源使用情况的模型。能源类型有：冷水表，电表，热水表和蒸汽表。数据集来自三年时间内超过1,000座建筑物。通过开发的能源模型可以对建筑物的节能投资的效果进行评估，以此说服大型投资者和金融机构将更倾向于在这一领域进行投资，以提高建筑效率。
 数据描述:  数据包含以下文件：\
 train.csv\
@@ -36,8 +36,12 @@ test.csv 没有特征数据;它就是表征那些数据是属于测试集的.\
 	&emsp;building_id - 之前文件中给定的Building id\
 	&emsp;meter - 计量表类型\
 	&emsp;timestamp - 时间戳\
-### 2 FEATURES
+### 2 特征
 
-### 3 CLASSIFICTION
+### 3 回归
 
-### 4 ESTIMATION
+### 4 评价与展望
+
+### 5 参考
+[🔌⚡ASHRAE -Start Here: A GENTLE Introduction](https://www.kaggle.com/caesarlupum/ashrae-start-here-a-gentle-introduction)
+[ASHRAE: Half and Half](https://www.kaggle.com/rohanrao/ashrae-half-and-half)
