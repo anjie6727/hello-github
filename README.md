@@ -1,9 +1,10 @@
-# ASHRAE - Great Energy Predictor III
+## ASHRAE - Great Energy Predictor III
     能耗预测
-## 1 INTRDUCTION
+    ![result](https://github.com/anjie6727/hello-github/score.png)
+### 1 INTRDUCTIONscore.png
 
-## 2 FEATURES
+### 2 FEATURES
 
-## 3 CLASSIFICTION
+### 3 CLASSIFICTION
 
-## 4 ESTIMATION
+### 4 ESTIMATION
