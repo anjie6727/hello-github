@@ -3,8 +3,9 @@
 作业的对象是 kaggle :[ASHRAE - Great Energy Predictor III](https://www.kaggle.com/c/ashrae-energy-prediction/overview)
 核心算法为决策树，所用优化框架为LightGBM。模型没有就时间序列，特征等方向进行优化，所以只是得一个基础分。
 所得成绩如下
-    ![result](https://raw.githubusercontent.com/anjie6727/hello-github/master/score.png)
-    ![result](https://raw.githubusercontent.com/anjie6727/hello-github/master/rank.png)
+&emsp;[ANAN6727](https://www.kaggle.com/anan6727903376998/competitions)
+    ![score](https://raw.githubusercontent.com/anjie6727/hello-github/master/score.png)
+    ![rank](https://raw.githubusercontent.com/anjie6727/hello-github/master/rank.png)
 score:1.1 rank:1422
 ### 1 介绍
 问题描述：开发精确的为建筑物计量能源使用情况的模型。能源类型有：冷水表，电表，热水表和蒸汽表。数据集来自三年时间内超过1,000座建筑物。通过开发的能源模型可以对建筑物的节能投资的效果进行评估，以此说服大型投资者和金融机构将更倾向于在这一领域进行投资，以提高建筑效率。
@@ -37,7 +38,17 @@ test.csv 没有特征数据;它就是表征那些数据是属于测试集的.\
 	&emsp;meter - 计量表类型\
 	&emsp;timestamp - 时间戳\
 ### 2 特征
-
+由问题描述可以得到这是一个Regression问题，故选择回归决策树来解决问题。\
+针对大量的数据，对特征进行筛选。已选择出对问题有效，同时又方便解决的特征。主要对时间特征进行筛选，处理，提取出几个对问题可能有效的时间特征，如，工作时间等。\
+增加的特征有 :\
+&emsp;hour：时间戳中的小时\
+&emsp;weekday：时间戳是否在周末\
+&emsp;is holiday: 时间戳是否为假日\
+不予考虑的特征:\
+&emsp;timestamp: 完整时间戳数据\
+&emsp;sea_level_pressure:天气大气压数据\
+&emsp;wind_direction：风向数据\
+&emsp;wind_speed：风力数据\
 ### 3 回归
 
 ### 4 评价与展望
