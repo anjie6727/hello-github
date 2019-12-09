@@ -52,11 +52,16 @@ test.csv 没有特征数据;它就是表征那些数据是属于测试集的.\
 ### 3 回归
 &emsp;LightGBM框架是基于树的梯度增强框架。它被设计为分布式且高效的，具有以下优点：
 #### 优化速度和内存使用率
-
+&emsp;LightGBM使用基于直方图的算法，该算法将连续特征（属性）值存储到离散的桶中。这样可以加快训练速度并减少内存使用量。基于直方图的算法的优点包括：\
+&emsp;&emsp;计算成本：降低了计算每次节点分割的增益的成本\
+&emsp;&emsp;时间复杂度：基于预排序的算法具有时间复杂性 O(数据)。计算直方图本身具有时间复杂性为O(数据)，但这仅涉及快速求和操作。一旦构建好了特征的直方图，基于直方图的算法就具有时间复杂度O(桶)，并且桶的规模远小于数据的规模。\
+&emsp;&emsp;直方图可以直接作差：使用直方图减法可以进一步提高速度。要在二叉树中获得叶子的直方图，使用其父级和邻居的直方图减法即可。因此，它只需要为一个叶子（数据规模比它的邻居小）构建直方图。然后，可以通过直方图减法以较小的成本获得邻居的直方图。\
+&emsp;&emsp;减少内存使用：用离散的桶替换连续的值。如果桶的规模较小，则可以使用较小的数据类型（例如uint8_t）来存储训练数据。而且，无需存储其他信息即可对特征值进行预排序。
 #### 精度优化
 ##### 逐叶（最佳优先）生长
 ##### 分类特征的最佳分割
 #### 稀疏优化
+&emsp;只需要构造稀疏特征的直方图
 ```
 params = {
     "objective": "regression",
@@ -73,5 +78,6 @@ model = lgb.train(params, train_set, num_boost_round=1000, valid_sets=list, verb
 
 ### 5 参考
 [🔌⚡ASHRAE -Start Here: A GENTLE Introduction](https://www.kaggle.com/caesarlupum/ashrae-start-here-a-gentle-introduction)\
-[ASHRAE: Half and Half](https://www.kaggle.com/rohanrao/ashrae-half-and-half)
+[ASHRAE: Half and Half](https://www.kaggle.com/rohanrao/ashrae-half-and-half)\
+[LightGBM](https://lightgbm.readthedocs.io/en/latest/Features.html)
 
